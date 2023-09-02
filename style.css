@@ -1,0 +1,23 @@
+*{background-color: rgb(152, 190, 232);margin:0;align-items: center;padding:0;text-align: center;}
+header{display: flex; background-color: rgb(121, 175, 237);height: fit-content;justify-content: space-evenly;}
+header h1{display: flex; background-color: rgb(121, 175, 237); margin: auto;}
+main p{margin: 5px;font-size: 16px;}
+.botonCalcu{padding: 5px; font-size: large;padding-top: 0;padding-bottom: 0;}
+#div-deuda{border: 2px solid black; padding: 5px;margin: 5px;width: fit-content;margin-top: 2px;display: block;}
+#html-array-deuda{display: flex;margin: auto;width:fit-content;}  
+.boton{margin: 2px; border: 2px solid black; border-radius: 20px; padding: 5px; background-color:rgb(179, 233, 241);font-weight:bolder;}
+.boton:hover{
+    padding: 7px; cursor:pointer;
+}
+.div-botones{height: 20px; display: flex;margin: auto;width: fit-content;margin-top: 20px;margin-bottom: 20px;}
+
+.contenedor{display: flex;justify-content: space-evenly;height: 600px;}
+.contenedor div{ padding:20px ;border: 2px solid black; height: fit-content;width: fit-content;border-radius: 50px; background-color: rgb(121, 175, 237);}
+.contenedor div input{background-color: rgb(121, 175, 237)}
+.contenedor h2{background-color: rgb(121, 175, 237)}
+.contenedor h1{background-color: rgb(121, 175, 237)}
+#formulario-deuda{display: flex;flex-direction: column;;}
+#formulario-deuda div{display: flex;flex-direction: column;padding: 20px;}
+#formulario-deuda div input{margin: 5px;}
+
+#lista-deuda{margin: auto;}

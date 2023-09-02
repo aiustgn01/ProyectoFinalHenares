@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Deudas</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="contenedor">
+        
+        
+        
+        
+
+        <div>
+            <h2>Importar/exportar a txt</h2>
+            <div>
+                <input type="file" id="input-txt">
+                <button class="boton" id="boton-importar-deudas-txt">Importar Deudas desde TXT</button>
+
+            </div>
+            <button class="boton" id="boton-guardar-deudas-txt">Exportar Deudas a TXT</button>
+            
+        </div>
+
+        <div id="formulario-deuda">
+            <h1>Gestión de Deudas</h1>
+            <div>
+            <input type="text" id="nombre-deuda" placeholder="Nombre de la deuda">
+            <input type="number" id="monto-deuda" placeholder="Monto final sin interes">
+            <input type="number" id="tasa-interes" placeholder="Tasa de interés (%)">
+            <input type="number" id="plazo-meses" placeholder="Plazo (meses)">
+            <button class="boton" id="boton-agregar-deuda">Agregar Deuda</button>
+        </div>
+
+        <div class="div-botones div-importar">
+            <button class="boton" id="boton-ver-deudas">Ver Deudas</button>
+            <button class="boton" id="boton-esconder-deudas">Esconder Deudas</button>
+            <button class="boton" id="boton-borrar-deudas" style="background-color: red;">BORRAR DEUDAS</button>
+        </div>
+        <button class="boton" id="boton-pasar-dolar"> VER DEUDAS EN DOLAR</button>
+        <button class="boton" id="boton-pasar-euro"> VER DEUDAS EN EURO</button>
+        </div>
+        <div class="div-importar">
+            <h2>Importar/exportrar localmente</h2>
+            <button class="boton" id="boton-guardar-deudas">Guardar Deudas Localmente (Local storage)</button>
+            <button class="boton" id="boton-importar-deudas">Importar Deudas Guardadas (Local storage)</button>
+        </div>
+
+         
+    </div>
+        <div id="lista-deuda">
+
+        </div>
+        <div id="html-array-deuda">
+
+        </div>
+    
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
