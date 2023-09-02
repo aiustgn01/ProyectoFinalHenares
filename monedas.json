@@ -1,0 +1,12 @@
+[
+    {
+        "nombre":"Dolar",
+        "compra":725,
+        "venta":730
+    },
+    {
+        "nombre":"Euro",
+        "compra":783,
+        "venta":788
+    }
+]

@@ -13,8 +13,27 @@ const botonImportarDeudasTxt = document.getElementById(
 );
 const botonBorrarDeudas = document.getElementById("boton-borrar-deudas");
 const botonEsconderDeudas = document.getElementById("boton-esconder-deudas");
+const botonPasarDolar = document.getElementById("boton-pasar-dolar");
+const botonPasarEuro = document.getElementById("boton-pasar-euro");
+let compraDolar
+let ventaDolar
+let compraEuro
+let ventaEuro
 
-//variables
+// FETCH
+fetch('monedas.json')
+  .then((response) => response.json())
+  .then((data) => {
+    compraDolar = data[0].compra;
+    ventaDolar = data[0].venta;
+    compraEuro = data[1].compra;
+    ventaEuro = data[1].venta;
+    botonPasarDolar.addEventListener("click", pasarDolar);
+    botonPasarEuro.addEventListener("click", pasarEuro);
+  })
+    // Puedes utilizar las variables compraDolar, ventaDolar, compraEuro y ventaEuro aquí según tus necesidades.
+  
+
 let contadorDeudas = 0;
 let arrayDeudas = [];
 
@@ -24,6 +43,7 @@ botonVerDeudas.addEventListener("click", verDeudas);
 botonGuardarDeudas.addEventListener("click", guardarDeudas);
 botonImportarDeudas.addEventListener("click", importarDeudas);
 botonImportarDeudasTxt.addEventListener("click", importarDeudasTxt);
+
 botonBorrarDeudas.addEventListener("click", function () {
   arrayDeudas = [];
   htmlArrayDeuda.innerHTML = "";
@@ -50,11 +70,11 @@ function verDeudas() {
 <div id='div-deuda'>
 <h3>Deuda número:${i + 1}</h3>
 <p> Nombre: ${arrayDeudas[i].nombre} </p>
-<p> Monto: $${arrayDeudas[i].cantidad} </p>
+<p> Monto: $${arrayDeudas[i].cantidad.toFixed(2)} </p>
 <p> Interes: ${arrayDeudas[i].interes}% </p>
 <p> Plazo: ${arrayDeudas[i].plazo} meses </p>
-<p> Precio por cuota: $${(arrayDeudas[i].cantidad*(1+(arrayDeudas[i].interes/100)))/arrayDeudas[i].plazo}
-<p> Monto final con interes: $${arrayDeudas[i].cantidad*(1+(arrayDeudas[i].interes/100))}
+<p> Precio por cuota: $${((arrayDeudas[i].cantidad*(1+(arrayDeudas[i].interes/100)))/arrayDeudas[i].plazo).toFixed(2)}
+<p> Monto final con interes: $${(arrayDeudas[i].cantidad*(1+(arrayDeudas[i].interes/100))).toFixed(2)}
 </div>
 `;
     console.log(elementoDeuda);
@@ -154,4 +174,59 @@ function importarDeudasTxt() {
     };
         lector.readAsText(archivo);
  
+}
+
+function pasarDolar(){
+  
+   htmlArrayDeuda.innerHTML = "";
+  console.log(arrayDeudas);
+  const cantidadElementosDeuda = arrayDeudas.length;
+  console.log(cantidadElementosDeuda);
+  const elementoDeuda = document.createElement("div");
+
+  for (let i = 0; i < cantidadElementosDeuda; i++) {
+    const elementoDeuda = document.createElement("div");
+    elementoDeuda.innerHTML = `
+<div id='div-deuda'>
+<h3>Deuda número:${i + 1}</h3>
+<p> Nombre: ${arrayDeudas[i].nombre} </p>
+<p> Monto (DOLARES): $${(arrayDeudas[i].cantidad/compraDolar).toFixed(2)} </p>
+<p> Interes: ${arrayDeudas[i].interes}% </p>
+<p> Plazo: ${arrayDeudas[i].plazo} meses </p>
+<p> Precio por cuota (DOLARES): $${(((arrayDeudas[i].cantidad*(1+(arrayDeudas[i].interes/100)))/arrayDeudas[i].plazo)/compraDolar).toFixed(2)}
+<p> Monto final con interes (DOLARES): $${((arrayDeudas[i].cantidad*(1+(arrayDeudas[i].interes/100)))/compraDolar).toFixed(2)}
+</div>
+`;
+    console.log(elementoDeuda);
+    htmlArrayDeuda.appendChild(elementoDeuda);
+  }
+
+
+}
+function pasarEuro(){
+  
+  htmlArrayDeuda.innerHTML = "";
+  console.log(arrayDeudas);
+  const cantidadElementosDeuda = arrayDeudas.length;
+  console.log(cantidadElementosDeuda);
+  const elementoDeuda = document.createElement("div");
+
+  for (let i = 0; i < cantidadElementosDeuda; i++) {
+    const elementoDeuda = document.createElement("div");
+    elementoDeuda.innerHTML = `
+<div id='div-deuda'>
+<h3>Deuda número:${i + 1}</h3>
+<p> Nombre: ${arrayDeudas[i].nombre} </p>
+<p> Monto (EUROS): $${(arrayDeudas[i].cantidad/compraEuro).toFixed(2)} </p>
+<p> Interes: ${arrayDeudas[i].interes}% </p>
+<p> Plazo: ${arrayDeudas[i].plazo} meses </p>
+<p> Precio por cuota (EUROS): $${(((arrayDeudas[i].cantidad*(1+(arrayDeudas[i].interes/100)))/arrayDeudas[i].plazo)/compraEuro).toFixed(2)}
+<p> Monto final con interes (EUROS): $${((arrayDeudas[i].cantidad*(1+(arrayDeudas[i].interes/100)))/compraEuro).toFixed(2)}
+</div>
+`;
+    console.log(elementoDeuda);
+    htmlArrayDeuda.appendChild(elementoDeuda);
+  }
+
+
 }
