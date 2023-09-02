@@ -86,9 +86,12 @@ function agregarDeuda() {
   listaDeuda.innerHTML = "";
   // tomo datos
   const nombreDeuda = document.getElementById("nombre-deuda").value;
-  const montoDeuda = parseFloat(document.getElementById("monto-deuda").value);
-  const tasaInteres = parseFloat(document.getElementById("tasa-interes").value);
-  const plazoMeses = parseInt(document.getElementById("plazo-meses").value);
+  var montoDeuda = parseFloat(document.getElementById("monto-deuda").value);
+  montoDeuda<0 ? montoDeuda = montoDeuda*-1 : null
+  var tasaInteres = parseFloat(document.getElementById("tasa-interes").value);
+  tasaInteres<0 ? tasaInteres = tasaInteres*-1 : null
+  var plazoMeses = parseInt(document.getElementById("plazo-meses").value);
+  plazoMeses<0 ? plazoMeses = plazoMeses*-1 : null
   // creo un objeto con los datos
   const deuda = {
     nombre: nombreDeuda,

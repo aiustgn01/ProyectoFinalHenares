@@ -29,10 +29,10 @@
         <div id="formulario-deuda">
             <h1>Gestión de Deudas</h1>
             <div>
-            <input type="text" id="nombre-deuda" placeholder="Nombre de la deuda">
-            <input type="number" id="monto-deuda" placeholder="Monto final sin interes">
-            <input type="number" id="tasa-interes" placeholder="Tasa de interés (%)">
-            <input type="number" id="plazo-meses" placeholder="Plazo (meses)">
+            <input type="text" id="nombre-deuda" placeholder="Nombre de la deuda" min="0">
+            <input type="number" id="monto-deuda" placeholder="Monto final sin interes" min="0">
+            <input type="number" id="tasa-interes" placeholder="Tasa de interés (%)" min="0">
+            <input type="number" id="plazo-meses" placeholder="Plazo (meses)" min="0">
             <button class="boton" id="boton-agregar-deuda">Agregar Deuda</button>
         </div>
 
